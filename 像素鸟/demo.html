@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        .contain{
+            width: 720px;
+            /* height: 500px; */
+            margin: 100px;
+            position: relative;
+            
+        }
+        .bgimg{
+            position: absolute;
+            width: 800px;
+            height: 560px;
+            border: 1px solid #ccc;
+            /* height: 500px; */
+            background: url(./img/background.webp) ;
+            overflow: hidden;
+            left: 0;
+            top: 0;
+            /* position: relative; */
+            display: none;
+        }
+        #bird{
+            width: 34px;
+            height: 25px;
+            background: url(./img/bird.png) -10px -8px no-repeat;
+            position: absolute;
+            left: 50px;
+            top: 50%;
+        }
+        button{
+            position: absolute;
+            left: 45%;
+            bottom: 30px;
+            padding:15px ;
+            background-color: #369;
+            color: #fff;
+            border: 1px solid #369;
+            border-radius: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <img src="./img/cover.jpg" alt="">
+        <div class="bgimg">
+            <div id="bird"></div>
+        </div>
+        <button id="start">start</button>
+    </div>
+
+
+    <script>
+        var btn=document.querySelector('#start');
+        var bigBox=document.querySelector('.bgimg');
+        var bird=document.querySelector('#bird')
+        btn.addEventListener('click',function(){
+
+            bigBox.style.display='block';
+            btn.style.display='none';
+            var x=-500,y=280;
+            setInterval(function(){
+            x-=5;
+            y +=3;
+            bird.style.top = y+'px';
+            bigBox.style.backgroundPositionX=x+'px';
+        },80)
+        document.onclick=function(){
+            y-=20;
+            bird.style.top = y+'px';
+         }
+        })
+       
+
+        function createPipe(position){
+            var upHeight = 180 + parseInt(Math.random() * 100);
+            var downHeight=250-parseInt(Math.random() * 100);
+            var upPipe=document.createElement('div');
+            upPipe.style.position='absolute';
+            upPipe.style.background='url(./img/top.png) no-repeat center top';
+            upPipe.style.width='40px';
+            upPipe.style.height=upHeight+'px';
+            upPipe.style.top='0px';
+            upPipe.style.left=position+'px';
+            bigBox.appendChild(upPipe);
+
+            var downPipe=document.createElement('div');
+            downPipe.style.position='absolute';
+            downPipe.style.background='url(./img/bottom.png) no-repeat center bottom';
+            downPipe.style.width='40px';
+            downPipe.style.height=downHeight+'px';
+            downPipe.style.bottom='0px';
+            downPipe.style.left=position+'px';
+            bigBox.appendChild(downPipe);
+            var x=position;
+            var flag=true;
+            setInterval(function(){
+            if(flag){
+                x -= 3;
+                upPipe.style.left=x+'px';
+                downPipe.style.left=x+'px';
+                if(x<10){
+                    x=800;
+                }
+            }
+                
+            },80)
+        }
+        createPipe(160);
+        createPipe(300)
+        createPipe(420)
+        // createPipe(500)
+        createPipe(580)
+        createPipe(700)
+
+    </script>
+</body>
+</html>
