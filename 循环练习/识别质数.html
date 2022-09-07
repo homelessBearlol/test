@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = prompt("请输入一个大于1的整数:");
+			var flag = true;
+			if(num <= 1){
+				alert("该值不合法！");
+			}else if(num % 2== 0){
+				
+				flag = false;
+			}else if(num % 3 ==0){
+				flag = false;
+			}else if(num % 5 ==0){
+				flag = false;
+			}else if(num % 7 ==0){
+				flag = false;
+			}
+			if(flag){
+					alert(num + "是质数！！！");
+				}else{
+					alert("这个不是质数")
+				}
+    </script>
+</body>
+</html>

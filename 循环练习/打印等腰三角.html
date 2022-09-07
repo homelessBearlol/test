@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        body{
+            font-size: 20px;
+            color: skyblue;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // var i,k;
+        // var str = '';
+        // // var m='',n='';  //写在这里问题
+        // for(i=0;i<5;i++){
+        //    var m='',n='';
+        //     for(var j=5-i;j>0;j--){
+        //        m += ' ';
+        //     }
+        //     for(k=0;k<2*i+1;k++){
+        //         n += '*';
+        //     }
+        //     str += m+n+'\n';
+            
+        // }   console.log(str);
+         
+
+        for(var i=1;i<6;i++){
+            for(var j=5;j>=i;j--){
+                document.write('&nbsp');
+                
+            }
+          for(var k=1;k<=2*i-1;k++){
+
+                document.write('★'+' ');
+        }   
+        document.write('<br/>')
+    } 
+ </script>
+</body>
+</html>
